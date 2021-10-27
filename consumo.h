@@ -3,7 +3,7 @@
 
 typedef struct{
 	int id; /// campo único y autoincremental
-	int idCliente
+	int idCliente;
 	int anio;
 	int mes; /// 1 a 12
 	int dia; /// 1 a … dependiendo del mes
