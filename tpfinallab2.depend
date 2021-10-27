@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1635375949 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\cliente.c
+
+1635373987 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1635299325 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\consumo.c
+	"consumo.h"
+
+1635375938 c:\users\fernando\desktop\mi repositorio\tpfinallab2\consumo.h
+	"cliente.h"
+
+1635299325 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\arbolesclientes.c
+	"arbolesclientes.h"
+
+1635375958 c:\users\fernando\desktop\mi repositorio\tpfinallab2\arbolesclientes.h
+	"cliente.h"
+	"consumo.h"
+
+1635375193 c:\users\fernando\desktop\mi repositorio\tpfinallab2\cliente.h
+	<string.h>
+	<stdio.h>
+	"consumo.h"
+
+1491400450 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
