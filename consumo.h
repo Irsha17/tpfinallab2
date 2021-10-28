@@ -11,5 +11,6 @@ typedef struct{
 	int baja; /// 0 si está activo - 1 si está eliminado
 } stConsumo;
 
+void muestraUnConsumo(stConsumo consumo);
 
 #endif // CONSUMO_H_INCLUDED
