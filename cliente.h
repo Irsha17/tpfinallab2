@@ -13,8 +13,6 @@ typedef struct {
 	int baja; /// 0 si está activo - 1 si está eliminado
 } stCliente;
 
-void muestraUnCliente(stCliente cliente){
-    printf("\n ID")
-}
+void muestraUnCliente(stCliente cliente);
 
 #endif // CLIENTE_H_INCLUDED
