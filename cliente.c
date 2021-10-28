@@ -1,6 +1,7 @@
 #include "cliente.h"
 
 void muestraUnCliente(stCliente cliente){
+    printf("-------------------------------------------------------------------\n");
     printf("ID Cliente:           |%d \n",cliente.id);
     printf("Numero Cliente:       |%d \n",cliente.nroCliente);
     printf("Nombre y Apellido:    |%s %s\n",cliente.nombre, cliente.apellido);
