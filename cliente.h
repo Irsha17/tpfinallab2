@@ -17,7 +17,7 @@ typedef struct
     char movil[12];
     int baja; ///0 si está activo - 1 si está eliminado///
 
-}stCliente
+} stCliente;
 
 
 #endif // CLIENTE_H_INCLUDED

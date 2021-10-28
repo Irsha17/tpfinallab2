@@ -1,7 +1,8 @@
 #ifndef CONSUMO_H_INCLUDED
 #define CONSUMO_H_INCLUDED
 
-#include "cliente.h"
+#include <string.h>
+#include <stdio.h>
 
 
 typedef struct

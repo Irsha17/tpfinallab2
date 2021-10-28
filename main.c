@@ -12,7 +12,14 @@
 
 int main()
 {
-    color(23);
+ color(23);
     printf("Trabajo Practico Final Laboratorio 2\n");
+    printf("\n >>> INTEGRANTES <<<\n");
+    printf("\n\t ROBLES, Fernando\n");
+    printf("\n\t LOPEZ, Ciro\n");
+    printf("\n\t Eulloque, Rodrigo\n");
+    printf("\n\n\n");
+    system("pause");
+    system("clr");
     return 0;
 }
