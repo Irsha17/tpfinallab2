@@ -15,3 +15,19 @@ nodoArbol* crearNodoArbolCliente(stCliente cliente, nodoLista* consumo){
 
     return nuevo;
 }
+
+nodoArbol* agregarArbolClientes(nodoArbol* arbol, nodoArbol* nuevo){
+    if(arbol==NULL){
+        arbol = nuevo;
+    }else{
+        if(nuevo->dato.id < arbol->dato.id){
+            arbol->izq = agregarArbolClientes(arbol->izq, nuevo);
+        }else{
+            if(nuevo->dato.id > arbol->dato.id){
+                arbol->der = agregarArbolClientes(arbol->der, nuevo);
+            }
+        }
+    }
+
+    return arbol;
+}

@@ -11,5 +11,5 @@ typedef struct _nodoArbol{
 }nodoArbol;
 
 nodoArbol* inicArbolClientes();
-nodoArbol* crearNodoArbolCliente(stCliente cliente, stConsumo consumo);
+nodoArbol* crearNodoArbolCliente(stCliente cliente, nodoLista* consumo);
 #endif // ARBOLESCLIENTES_H_INCLUDED

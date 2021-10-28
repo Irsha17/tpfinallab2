@@ -21,11 +21,11 @@ nodoLista* agregarAlPrincipio(nodoLista* lista, nodoLista* nuevo){
 void mostrarLista(nodoLista* lista){
     nodoLista* seg = lista;
     while(seg){
-        muestraUnNodo(seg);
-        seg = seg->siguiente;
+        muestraNodo(seg);
+        seg = seg->sig;
     }
 }
 
 void muestraNodo(nodoLista* nodo){
-    muestraUnConsumo(nodoLista->dato);
+    muestraUnConsumo(nodo->dato);
 }

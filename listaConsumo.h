@@ -5,7 +5,7 @@
 typedef struct _nodoLista{
 	stConsumo dato;
 	struct _nodoLista* sig;
-}nodoLista:
+}nodoLista;
 
 nodoLista* inicLista();
 nodoLista* crearNodoLista(stConsumo consumo);

@@ -7,7 +7,7 @@ void muestraUnCliente(stCliente cliente){
     printf("DNI:                  |%d \n",cliente.dni);
     printf("Correo Electronico:   |%s \n",cliente.email);
     printf("Domicilio:            |%s",cliente.domicilio);
-    printf("Celular:              |%s \n",cliente.móvil);
+    printf("Celular:              |%s \n",cliente.movil);
     printf("Estado:               |%d \n", (cliente.baja== 0)?"Activo":"Eliminado");
 
     printf("-------------------------------------------------------------------\n");

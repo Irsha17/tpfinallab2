@@ -9,7 +9,7 @@ typedef struct {
 	char dni[10];
 	char email[30];
 	char domicilio[45];
-	char móvil[12];
+	char movil[12];
 	int baja; /// 0 si está activo - 1 si está eliminado
 } stCliente;
 

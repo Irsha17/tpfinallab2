@@ -5,3 +5,29 @@
 	<stdio.h>
 	<stdlib.h>
 
+1635430275 source:c:\users\usuario\documents\github\tpfinallab2\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1635442231 source:c:\users\usuario\documents\github\tpfinallab2\arbolclientes.c
+	<stdio.h>
+	<stdlib.h>
+	"arbolesclientes.h"
+
+1635442344 c:\users\usuario\documents\github\tpfinallab2\arbolesclientes.h
+	"cliente.h"
+	"listaConsumo.h"
+
+1635442300 c:\users\usuario\documents\github\tpfinallab2\cliente.h
+
+1635442311 c:\users\usuario\documents\github\tpfinallab2\listaconsumo.h
+	"consumo.h"
+
+1635432727 c:\users\usuario\documents\github\tpfinallab2\consumo.h
+
+1635442353 source:c:\users\usuario\documents\github\tpfinallab2\cliente.c
+	"cliente.h"
+
+1635442366 source:c:\users\usuario\documents\github\tpfinallab2\consumo.c
+	"consumo.h"
+
