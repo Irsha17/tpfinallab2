@@ -5,29 +5,50 @@
 	<stdio.h>
 	<stdlib.h>
 
-1635430275 source:c:\users\usuario\documents\github\tpfinallab2\main.c
+1635522312 source:c:\users\usuario\documents\github\tpfinallab2\main.c
 	<stdio.h>
 	<stdlib.h>
+	"cliente.h"
+	"consumo.h"
+	"listaConsumo.h"
+	"arbolesclientes.h"
 
-1635442231 source:c:\users\usuario\documents\github\tpfinallab2\arbolclientes.c
+1635522297 source:c:\users\usuario\documents\github\tpfinallab2\arbolclientes.c
 	<stdio.h>
 	<stdlib.h>
 	"arbolesclientes.h"
 
-1635442344 c:\users\usuario\documents\github\tpfinallab2\arbolesclientes.h
+1635456455 c:\users\usuario\documents\github\tpfinallab2\arbolesclientes.h
 	"cliente.h"
 	"listaConsumo.h"
 
-1635442300 c:\users\usuario\documents\github\tpfinallab2\cliente.h
+1635520047 c:\users\usuario\documents\github\tpfinallab2\cliente.h
+	"consumo.h"
 
 1635442311 c:\users\usuario\documents\github\tpfinallab2\listaconsumo.h
 	"consumo.h"
 
-1635432727 c:\users\usuario\documents\github\tpfinallab2\consumo.h
+1635520686 c:\users\usuario\documents\github\tpfinallab2\consumo.h
 
-1635442353 source:c:\users\usuario\documents\github\tpfinallab2\cliente.c
+1635521871 source:c:\users\usuario\documents\github\tpfinallab2\cliente.c
+	<stdio.h>
+	<stdlib.h>
 	"cliente.h"
+	"string.h"
 
-1635442366 source:c:\users\usuario\documents\github\tpfinallab2\consumo.c
-	"consumo.h"
+1635520686 source:c:\users\usuario\documents\github\tpfinallab2\consumo.c
+	<stdio.h>
+	<stdlib.h>
+	"Consumo.h"
+	<time.h>
+
+1635442444 source:c:\users\usuario\documents\github\tpfinallab2\listaconsumo.c
+	<stdio.h>
+	<stdlib.h>
+	"listaConsumo.h"
+
+1635521871 source:c:\users\usuario\documents\github\tpfinallab2\menu.c
+	"menu.h"
+
+1635521969 c:\users\usuario\documents\github\tpfinallab2\menu.h
 

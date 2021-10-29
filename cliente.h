@@ -1,5 +1,6 @@
 #ifndef CLIENTE_H_INCLUDED
 #define CLIENTE_H_INCLUDED
+#include "consumo.h"
 
 typedef struct {
 	int id; /// campo único y autoincremental
@@ -13,6 +14,16 @@ typedef struct {
 	int baja; /// 0 si está activo - 1 si está eliminado
 } stCliente;
 
+void cargarCliente(char archivo[]);
+int idClientes(char archivo[]);
+int contarIdCliente(char archivo[]);
+int validacionNroCliente (char archivo[],int nroCliente);
+int validacionClienteDni(char archivo[],char dni[]);
+int validacionEmail(char archivo[],int dim,char email[][dim]);
+void consultaIdCliente(char archivo[], int nro);
+void mostrarArchClientes(char archivo[]);
 void muestraUnCliente(stCliente cliente);
+void modificarCliente(char archivo[]);
+void bajaCliente(char archivo[]);
 
 #endif // CLIENTE_H_INCLUDED
