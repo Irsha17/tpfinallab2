@@ -88,10 +88,80 @@ void enOrdenClientes(nodoArbol* arbol){
 }
 
 void muestraNodoArbolClientes(nodoArbol* nodo){
+    if(nodo->dato.id){
     printf("\n Cliente \n");
     muestraUnCliente(nodo->dato);
     printf("\n\n Consumos\n");
     mostrarLista(nodo->consumos);
     printf("\n\n *********************************************************************** \n");
-
+    }
 }
+
+nodoArbol * arbolMasDerecha(nodoArbol * arbol){
+    nodoArbol * seg = arbol;
+    while(seg->der) {
+        seg = seg->der;
+    }
+    return seg;
+}
+
+nodoArbol * arbolMasIzquierdo(nodoArbol * arbol){
+    nodoArbol * seg = arbol;
+    while(seg->izq) {
+        seg = seg->izq;
+    }
+    return seg;
+}
+
+int esHoja(nodoArbol * arbol) {
+    int rta = 0;
+    if(arbol) {
+        if(!arbol->izq && !arbol->der){
+            rta = 1;
+        }
+    }
+    return rta;
+}
+
+nodoLista* borrarLista(nodoLista* lista){
+    nodoLista* proximo=NULL;
+    nodoLista* seg=NULL;
+
+    seg = lista;
+    while(seg){
+        proximo = seg->sig;
+        free(seg);
+        seg=proximo;
+    }
+    return seg;
+}
+nodoArbol* eliminaNodoArbol(nodoArbol* arbol, int id){
+
+    nodoArbol* aux = arbol;
+    if(aux) {
+        if(id==aux->dato.id) {
+
+            if(aux->izq) {
+                nodoArbol* masIzq = arbolMasDerecha(aux->izq);
+                aux->dato = masIzq->dato;
+                aux->izq = eliminaNodoArbol(aux->izq, id);
+            } else if (aux->der) {
+                nodoArbol* masDer = arbolMasIzquierdo(aux->der);
+                aux->dato = masDer->dato;
+                aux->der = eliminaNodoArbol(aux->der, id);
+            } else if (esHoja(aux)) {
+                aux->consumos=borrarLista(aux->consumos);
+                free(aux);
+            }
+        } else {
+            aux->izq = eliminaNodoArbol(aux->izq, id);
+            if(!aux->izq) {
+                aux->der = eliminaNodoArbol(aux->der, id);
+            }
+        }
+    }
+    return arbol;
+}
+
+
+

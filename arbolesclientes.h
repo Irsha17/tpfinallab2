@@ -15,4 +15,13 @@ nodoArbol* crearNodoArbolCliente(stCliente cliente, nodoLista* consumo);
 nodoArbol* buscaNodoArbolClientePorId(nodoArbol* arbol, int id);
 void muestraNodoArbolClientes(nodoArbol* nodo);
 void enOrdenClientes(nodoArbol* arbol);
+
+
+nodoArbol * arbolMasDerecha(nodoArbol * arbol);
+nodoArbol * arbolMasIzquierdo(nodoArbol * arbol);
+int esHoja(nodoArbol * arbol);
+nodoLista* eliminaPrimerNodo(nodoLista* lista);
+nodoArbol * eliminaNodoArbol(nodoArbol* arbol, int id);
+nodoLista* borrarLista(nodoLista* lista);
+
 #endif // ARBOLESCLIENTES_H_INCLUDED
