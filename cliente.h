@@ -25,5 +25,10 @@ void mostrarArchClientes(char archivo[]);
 void muestraUnCliente(stCliente cliente);
 void modificarCliente(char archivo[]);
 void bajaCliente(char archivo[]);
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 
 #endif // CLIENTE_H_INCLUDED
