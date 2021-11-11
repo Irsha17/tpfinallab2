@@ -17,10 +17,18 @@ typedef struct{
     int dia;
 }stFecha;
 
-                                                                                 ///
+typedef struct{
+    int idCliente;
+    char nombre[30];
+	char apellido[30];
+    int periodo;
+    int datosConsumidos;
+}stLiquidacion;
+                                                                                              ///
 void cargaUnConsumo(char archivo[]);                                                          ///
-void altaConsumos(char archivo[]);                                                            ///
+void cargaConsumosRandom(char archivo[], char archClientes[]);                                ///
 void muestraUnConsumo(stConsumo a);                                                           ///
+void muestraUnaLiquidacion(stLiquidacion l);                                                  ///
 void muestraArchivo(char archivo[]);                                                          ///
 int ultimoId(char archivo[]);                                                                 ///
 void muestraConsumosPorCliente(char archivo[], int id);                                       ///

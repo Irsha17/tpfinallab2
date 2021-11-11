@@ -2,13 +2,13 @@
 #include <stdlib.h>
 #include "cliente.h"
 #include "string.h"
+#include "autoCargaCliente.h"
 
 //FUNCION PARA CARGAR UN CLIENTE
 void cargarCliente(char archivo[]){// RECIBE COMO PARAMETRO EL ARCHIVO DONDE SE GUARDA EL CLIENTE
     FILE * archi;//puntero al archivo
     stCliente cliente;//creamos el nombre de la estrutura para cargar los datos
     int i=0;
-    int EdadPermitida=18;//edad minima que se debe tener para registrarse
     int validacion=0;
     int pos=0;
 
@@ -95,6 +95,49 @@ void cargarCliente(char archivo[]){// RECIBE COMO PARAMETRO EL ARCHIVO DONDE SE 
     }
     system("pause\n");
     system("cls");
+}
+
+
+
+void cargaClienteRandom(char arch[]){
+    FILE *parchi = fopen(arch, "ab");
+    stCliente e;
+
+    for(int i=0 ; i<51 ; i++){
+        e = cargaUnClienteRand(parchi, i);
+        fwrite(&e,sizeof(stCliente),1,parchi);
+    }
+    fclose(parchi);
+
+}
+
+stCliente cargaUnClienteRand(FILE *fp, int i){
+    stCliente e;
+    int validacion = 0;
+    e.id = ultimoId(fp)+i;
+    e.nroCliente = getNroCliente();
+    do{
+        validacion = validacionNroCliente(fp,e.nroCliente);
+        if(validacion==1){
+            e.nroCliente = getNroCliente();
+        }
+    } while(validacion==1);
+
+    strcpy(e.dni, getDni());
+    validacion = validacionClienteDni(fp, e.dni);
+    while(validacion==1){
+            strcpy(e.dni, getDni());
+            validacion = validacionClienteDni(fp, e.dni);
+    }
+
+    strcpy(e.nombre, getNombre());
+    strcpy(e.apellido, getApellido());
+    strcpy(e.domicilio, getDomicilio());
+    strcpy(e.email, getEmail());
+    strcpy(e.movil, getMovil());
+    e.baja = rand()%2;
+
+    return e;
 }
 
 int validacionNroCliente (char archivo[],int nroCliente){
@@ -196,7 +239,7 @@ void muestraUnCliente(stCliente cliente){
     printf("Nombre y Apellido:    |%s %s\n",cliente.nombre, cliente.apellido);
     printf("DNI:                  |%s \n",cliente.dni);
     printf("Correo Electronico:   |%s \n",cliente.email);
-    printf("Domicilio:            |%s",cliente.domicilio);
+    printf("Domicilio:            |%s \n",cliente.domicilio);
     printf("Celular:              |%s \n",cliente.movil);
     printf("Estado:               |%s \n", (cliente.baja== 0)?"Activo":"Eliminado");
 
@@ -373,4 +416,18 @@ int contarIdCliente(char archivo[]){ //recorre el archivo para calcular cantidad
         fclose(archiclientes);
     }
     return i;
+}
+
+int file2ArrayClientes(stCliente arreglo[], int dim){
+    FILE *parchic = fopen("Clientes.dat","rb");
+    stCliente c;
+    int v = 0;
+    if(parchic != NULL){
+        while(fread(&c, sizeof(stCliente), 1, parchic)>0){
+            arreglo[v] = c;
+            v++;
+        }
+    }
+    fclose(parchic);
+    return v;
 }

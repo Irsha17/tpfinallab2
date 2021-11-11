@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "Consumo.h"
 #include <time.h>
+#include "cliente.h"
 
 void cargaUnConsumo(char archivo[])
 {
@@ -62,32 +63,36 @@ void cargaUnConsumo(char archivo[])
 
 }
 
-void altaConsumos(char archivo[]){ // Carga automaticamente mil consumos random.
+void cargaConsumosRandom(char archivo[], char archClientes[]){ // Carga automaticamente mil consumos random.
     int validos=contarIdCliente("Clientes.dat");
+    stCliente c;
     stConsumo a;
     stFecha b;
     int i=ultimoId(archivo);
-
+    FILE *parchiClientes = fopen(archClientes, "rb");
     FILE *pArchiConsumos = fopen(archivo, "ab");
 
-    if(pArchiConsumos!=NULL){
+    if(parchiClientes){
+        if(pArchiConsumos!=NULL){
+            while(fread(&c, sizeof(stCliente), 1, parchiClientes)>0){
+                for(int j=0 ; j<11 ; j++){
+                    a.idCliente= c.id;
+                    b = fechaAleatoria(); // cargamos fecha aleatoria en estructura auxiliar. Luego se copiara en la fecha de estructura de consumo.
 
-        while(i<1000){
-            a.idCliente= rand()%validos;
-            b = fechaAleatoria(); // cargamos fecha aleatoria en estructura auxiliar. Luego se copiara en la fecha de estructura de consumo.
+                    a.anio = b.anio;
+                    a.mes = b.mes;
+                    a.dia = b.dia;
+                    a.datosConsumidos = rand()%1000;
+                    a.baja = rand()%2;
+                    i++;
 
-            a.anio = b.anio;
-            a.mes = b.mes;
-            a.dia = b.dia;
-            a.datosConsumidos = rand()%1000;
-            a.baja = rand()%2;
-            i++;
+                    a.id = i;
 
-            a.id = i;
-
-            fwrite(&a, sizeof(stConsumo), 1, pArchiConsumos);
-         }
+                    fwrite(&a, sizeof(stConsumo), 1, pArchiConsumos);
+                }
+            }
         fclose(pArchiConsumos);
+        }
     }
 }
 
@@ -100,6 +105,14 @@ void muestraUnConsumo(stConsumo consumo){
     printf("\n---------------------------------------------------");
 }
 
+void muestraUnaLiquidacion(stLiquidacion l){
+    printf("\n--------------------------------------------------");
+    printf("\n Nombre y Apellido......: %s %s",l.nombre, l.apellido);
+    printf("\n Id de Cliente..........: %d", l.idCliente);
+    printf("\n Periodo................: %d", l.periodo);
+    printf("\n Datos Consumidos.......: %d Mb", l.datosConsumidos);
+    printf("\n--------------------------------------------------\n");
+}
 
 void muestraArchivo(char archivo[]){ // Recorre el archivo y muestra el archivo completo utilizando la siguiente funcion de mostrar un consumo
 

@@ -7,11 +7,11 @@
 
 
 const char ARCH_CONSUMOS[]="consumos.dat";
-
+const char Archivo_Cliente[]="Clientes.dat";
 
 int main(){
 
-    char Archivo_Cliente[]= {"Clientes.dat"};
+
     int id=0;
     int id_consumo_cliente=0;
 
@@ -25,7 +25,16 @@ int main(){
     int mesConsumo=0;
     int diaConsumo=0;
 
+    nodoArbol* cliente;
+    int clienteEliminar;
+
+    stCliente arrayClientes[50];
+    int validosClientes = 0;
     nodoArbol* arbolClientes = inicArbolClientes();
+
+    int idC;
+    int periodo;
+    stLiquidacion liquidacion;
 
     do{
         menu();
@@ -42,7 +51,20 @@ int main(){
             switch(opcion1){
                 case 49:
                     system("cls");
-                    cargarCliente(Archivo_Cliente);         //REGISTRAR UN CLIENTE
+                    menuCliente();
+                    fflush(stdin);
+                    opcion1 = getch();
+
+                    switch(opcion1){
+                        case 49:
+                            system("cls");
+                            cargarCliente(Archivo_Cliente);         //REGISTRAR UN CLIENTE
+                        break;
+                        case 50:
+                            system("cls");
+                            cargaClienteRandom(Archivo_Cliente);
+                        break;
+                    }
                 break;
 
                 case 50:                                      //MODIFICAR UN CLIENTE
@@ -130,7 +152,7 @@ int main(){
 
                 case 53:
                     system ("cls");
-                    altaConsumos(ARCH_CONSUMOS);                                                  //INICIA LA CARGA DE 1000 CONSUMOS RANDOM
+                    cargaConsumosRandom(ARCH_CONSUMOS, Archivo_Cliente);                   //INICIA LA CARGA DE 30 consumos x cliente
                     printf("\nSe cargaron correctamente los consumos aleatorios \n");
                     system("pause");
                     system("cls");
@@ -160,12 +182,46 @@ int main(){
                     if(!ARCH_CONSUMOS || !"Consumos.dat"){
                         printf("\n ***** PRIMERO DEBE CARGAR LOS ARCHIVOS *****");
                     }else{
-                        arbolClientes = arch2Arbol(arbolClientes, ARCH_CONSUMOS, "Clientes.dat");
-                        printf("\n ***** EL ARBOL HA SIDO CARGADO CORRECTAMENTE *****");
+                        validosClientes = file2ArrayClientes(arrayClientes, 50);
+                        arbolClientes = arrayClientes2Arbol(arrayClientes, validosClientes);
+                        arbolClientes = cargarArbol(arbolClientes, ARCH_CONSUMOS);
+                        printf("\n ***** EL ARBOL HA SIDO CARGADO CORRECTAMENTE *****\n");
                     }
                     system("pause");
                     system("cls");
                 break;
+
+                case 50:
+                    system("cls");
+                    printf("\n********* ATENCION USTED ESTA POR LIQUIDAR LOS CONSUMOS DE UN CLIENTE *********\n");
+                    printf("\n INGRESE EL idCliente QUE DESEA LIQUIDAR: ");
+                    scanf("%d", &idC);
+                    cliente = buscaNodoArbolClientePorId(arbolClientes, idC);
+                    if(cliente == NULL){
+                        do{
+                            printf("\n EL CLIENTE NO EXISTE! Ingrese id valido: ");
+                            scanf("%d", &idC);
+                            cliente = buscaNodoArbolClientePorId(arbolClientes, idC);
+                        }while(cliente == NULL);
+                    }
+                    printf("\n INGRESE EL MES O ANIO QUE DESEA LIQUIDAR: ");
+                    scanf("%d", &periodo);
+                    liquidacion = liquidarPeriodo(cliente, periodo);
+                    system("pause");
+                    system("cls");
+                    printf("\n ******** SE MUESTRA LIQUIDACION ******** \n");
+                    muestraUnaLiquidacion(liquidacion);
+                    system("pause");
+                    system("cls");
+                break;
+
+                case 51:
+                    system("cls");
+                    printf("\n Ingrese el id del cliente que desea eliminar: ");
+                    scanf("%d", &clienteEliminar);
+                    arbolClientes = eliminaNodoArbol(arbolClientes, clienteEliminar);
+                    system("pause");
+                    system("cls");
 
                 case 52:
                     system("cls");

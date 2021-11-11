@@ -52,3 +52,63 @@
 
 1635521969 c:\users\usuario\documents\github\tpfinallab2\menu.h
 
+1636662735 source:c:\users\usuario\onedrive\desktop\codes\tpfinallab2\arbolclientes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"arbolesclientes.h"
+	"cliente.h"
+	"consumo.h"
+
+1636661079 c:\users\usuario\onedrive\desktop\codes\tpfinallab2\arbolesclientes.h
+	"cliente.h"
+	"listaConsumo.h"
+
+1636654814 c:\users\usuario\onedrive\desktop\codes\tpfinallab2\cliente.h
+	"consumo.h"
+
+1636652156 c:\users\usuario\onedrive\desktop\codes\tpfinallab2\consumo.h
+
+1636654814 c:\users\usuario\onedrive\desktop\codes\tpfinallab2\listaconsumo.h
+	"consumo.h"
+
+1636654814 source:c:\users\usuario\onedrive\desktop\codes\tpfinallab2\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+	"string.h"
+	"autoCargaCliente.h"
+
+1636659211 source:c:\users\usuario\onedrive\desktop\codes\tpfinallab2\consumo.c
+	<stdio.h>
+	<stdlib.h>
+	"Consumo.h"
+	<time.h>
+	"cliente.h"
+
+1636654814 source:c:\users\usuario\onedrive\desktop\codes\tpfinallab2\listaconsumo.c
+	<stdio.h>
+	<stdlib.h>
+	"listaConsumo.h"
+
+1636658875 source:c:\users\usuario\onedrive\desktop\codes\tpfinallab2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+	"consumo.h"
+	"listaConsumo.h"
+	"arbolesclientes.h"
+
+1636654196 source:c:\users\usuario\onedrive\desktop\codes\tpfinallab2\menu.c
+	"menu.h"
+
+1636654196 c:\users\usuario\onedrive\desktop\codes\tpfinallab2\menu.h
+
+1636643520 source:c:\users\usuario\onedrive\desktop\codes\tpfinallab2\autocargacliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"autoCargaCliente.h"
+
+1636641049 c:\users\usuario\onedrive\desktop\codes\tpfinallab2\autocargacliente.h
+

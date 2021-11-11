@@ -11,17 +11,13 @@ typedef struct _nodoArbol{
 }nodoArbol;
 
 nodoArbol* inicArbolClientes();
-nodoArbol* crearNodoArbolCliente(stCliente cliente, nodoLista* consumo);
+nodoArbol* crearNodoArbolCliente(stCliente cliente);
 nodoArbol* buscaNodoArbolClientePorId(nodoArbol* arbol, int id);
 void muestraNodoArbolClientes(nodoArbol* nodo);
 void enOrdenClientes(nodoArbol* arbol);
-
-
-nodoArbol * arbolMasDerecha(nodoArbol * arbol);
-nodoArbol * arbolMasIzquierdo(nodoArbol * arbol);
-int esHoja(nodoArbol * arbol);
-nodoLista* eliminaPrimerNodo(nodoLista* lista);
-nodoArbol * eliminaNodoArbol(nodoArbol* arbol, int id);
-nodoLista* borrarLista(nodoLista* lista);
-
+nodoArbol* cargarArbol(nodoArbol* arbol, char archConsumos[]);
+nodoArbol* arrayClientes2Arbol(stCliente arrayCliente[],int validos);
+nodoArbol* insertarPorID(nodoArbol* arbol, stCliente cliente);
+stLiquidacion liquidarPeriodo(nodoArbol* cliente, int periodo);
+nodoArbol* eliminaNodoArbol(nodoArbol* aux, int id);
 #endif // ARBOLESCLIENTES_H_INCLUDED

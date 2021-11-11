@@ -29,3 +29,31 @@ void mostrarLista(nodoLista* lista){
 void muestraNodo(nodoLista* nodo){
     muestraUnConsumo(nodo->dato);
 }
+
+nodoLista* borrarLista(nodoLista* lista){
+    nodoLista* proximo=NULL;
+    nodoLista* seg=NULL;
+
+    seg = lista;
+    while(seg){
+        proximo = seg->sig;
+        free(seg);
+        seg=proximo;
+    }
+    return seg;
+}
+
+
+
+int datosConsumidosPorPeriodo(nodoLista* lista, int periodo){
+    nodoLista* seg = lista;
+    int datos = 0;
+    while(seg){
+        if(periodo == seg->dato.anio || periodo == seg->dato.mes){
+            datos = datos + seg->dato.datosConsumidos;
+        }
+        seg = seg->sig;
+
+    }
+    return datos;
+}

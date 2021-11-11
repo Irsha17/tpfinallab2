@@ -12,6 +12,8 @@ nodoLista* crearNodoLista(stConsumo consumo);
 nodoLista* agregarAlPrincipio(nodoLista* lista, nodoLista* nuevo);
 void mostrarLista(nodoLista* lista);
 void muestraNodo(nodoLista* nodo);
+nodoLista* borrarLista(nodoLista* lista);
+int datosConsumidosPorPeriodo(nodoLista* lista, int periodo);
 
 
 #endif // LISTACONSUMO_H_INCLUDED

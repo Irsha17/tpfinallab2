@@ -25,5 +25,8 @@ void mostrarArchClientes(char archivo[]);
 void muestraUnCliente(stCliente cliente);
 void modificarCliente(char archivo[]);
 void bajaCliente(char archivo[]);
+void cargaClienteRandom();
+stCliente cargaUnClienteRand(FILE *fp, int i);
+int file2ArrayClientes(stCliente arreglo[], int dim);
 
 #endif // CLIENTE_H_INCLUDED

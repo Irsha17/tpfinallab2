@@ -1,15 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "arbolesclientes.h"
+#include "cliente.h"
+#include "consumo.h"
 
 nodoArbol* inicArbolClientes(){
     return NULL;
 }
 
-nodoArbol* crearNodoArbolCliente(stCliente cliente, nodoLista* consumo){
+nodoArbol* crearNodoArbolCliente(stCliente cliente){
     nodoArbol* nuevo = (nodoArbol*)malloc(sizeof(nodoArbol));
     nuevo->dato = cliente;
-    nuevo->consumos = consumo;
+    nuevo->consumos = inicLista();
     nuevo->izq = NULL;
     nuevo->der = NULL;
 
@@ -48,36 +51,51 @@ nodoArbol* buscaNodoArbolClientePorId(nodoArbol* arbol, int id){
     return respuesta;
 }
 
-nodoArbol* arch2Arbol(nodoArbol* arbol, char archConsumos[], char archClientes[]){
+nodoArbol* cargarArbol(nodoArbol* arbol, char archConsumos[]){
     FILE *parchiConsumos = fopen(archConsumos, "rb");
-    FILE *parchiClientes = fopen(archClientes, "rb");
     stConsumo cons;
-    stCliente client;
     nodoArbol* aux = NULL;
+    int i = 0;
     if(parchiConsumos){
         while(fread(&cons, sizeof(stConsumo), 1, parchiConsumos)>0){
-            if(parchiClientes){
-                rewind(parchiClientes);
-                while(fread(&client, sizeof(stCliente), 1, parchiClientes)>0){
-                    if(cons.idCliente == client.id){
-                        aux = buscaNodoArbolClientePorId(arbol, client.id);
-                        if(aux == NULL){
-                            nodoArbol* nuevo= crearNodoArbolCliente(client, crearNodoLista(cons));
-                            arbol = agregarArbolClientes(arbol, nuevo);
-                        }else{
-                            aux->consumos = agregarAlPrincipio(aux->consumos, crearNodoLista(cons));
-                        }
-
-                    }
-                }
-            }
+            aux = buscaNodoArbolClientePorId(arbol, cons.idCliente);
+            aux->consumos = agregarAlPrincipio(aux->consumos, crearNodoLista(cons));
         }
-        fclose(parchiClientes);
-        fclose(parchiConsumos);
+
     }
+    fclose(parchiConsumos);
+
     return arbol;
 
 }
+
+nodoArbol* arrayClientes2Arbol(stCliente arrayCliente[],int validos){
+    nodoArbol* arbol = NULL;
+    int i, mitad=(validos-1)/2;
+    for(i=mitad; i>=0; i--){
+        if( (i%2)!=0 ){
+            arbol=agregarArbolClientes(arbol, crearNodoArbolCliente(arrayCliente[i]));
+        }
+    }
+    for(i=mitad; i>=0; i--){
+        if( (i%2)==0 ){
+            arbol=agregarArbolClientes(arbol, crearNodoArbolCliente(arrayCliente[i]));
+        }
+    }
+    //PARTE DERECHA
+    for(i=mitad+1; i<validos; i++){
+        if( (i%2)!=0 ){
+            arbol=agregarArbolClientes(arbol, crearNodoArbolCliente(arrayCliente[i]));
+        }
+    }
+    for(i=mitad+1; i<validos; i++){
+        if( (i%2)==0 ){
+            arbol=agregarArbolClientes(arbol, crearNodoArbolCliente(arrayCliente[i]));
+        }
+    }
+    return arbol;
+}
+
 
 void enOrdenClientes(nodoArbol* arbol){
     if(arbol){
@@ -123,45 +141,46 @@ int esHoja(nodoArbol * arbol) {
     return rta;
 }
 
-nodoLista* borrarLista(nodoLista* lista){
-    nodoLista* proximo=NULL;
-    nodoLista* seg=NULL;
 
-    seg = lista;
-    while(seg){
-        proximo = seg->sig;
-        free(seg);
-        seg=proximo;
+stLiquidacion liquidarPeriodo(nodoArbol* cliente, int periodo){
+    stLiquidacion liquidacion;
+    if(cliente){
+        strcpy(liquidacion.nombre, cliente->dato.nombre);
+        strcpy(liquidacion.apellido, cliente->dato.apellido);
+        liquidacion.idCliente = cliente->dato.id;
+        liquidacion.periodo = periodo;
+        liquidacion.datosConsumidos = datosConsumidosPorPeriodo(cliente->consumos, periodo);
     }
-    return seg;
+    return liquidacion;
 }
-nodoArbol* eliminaNodoArbol(nodoArbol* arbol, int id){
 
-    nodoArbol* aux = arbol;
+
+nodoArbol* eliminaNodoArbol(nodoArbol* aux, int id){
+
     if(aux) {
         if(id==aux->dato.id) {
 
             if(aux->izq) {
-                nodoArbol* masIzq = arbolMasDerecha(aux->izq);
-                aux->dato = masIzq->dato;
-                aux->izq = eliminaNodoArbol(aux->izq, id);
-            } else if (aux->der) {
-                nodoArbol* masDer = arbolMasIzquierdo(aux->der);
+                nodoArbol* masDer = arbolMasDerecha(aux->izq);
                 aux->dato = masDer->dato;
-                aux->der = eliminaNodoArbol(aux->der, id);
+                aux->consumos = masDer->consumos;
+                aux->izq = eliminaNodoArbol(aux->izq, masDer->dato.id);
+            } else if (aux->der) {
+                nodoArbol* masIzq = arbolMasIzquierdo(aux->der);
+                aux->dato = masIzq->dato;
+                aux->der = eliminaNodoArbol(aux->der, masIzq->dato.id);
             } else if (esHoja(aux)) {
                 aux->consumos=borrarLista(aux->consumos);
                 free(aux);
+                aux = NULL;
             }
-        } else {
-            aux->izq = eliminaNodoArbol(aux->izq, id);
-            if(!aux->izq) {
+        }else{
+            if(id > aux->dato.id){
                 aux->der = eliminaNodoArbol(aux->der, id);
+            }else{
+                aux->izq = eliminaNodoArbol(aux->izq, id);
             }
         }
     }
-    return arbol;
+    return aux;
 }
-
-
-

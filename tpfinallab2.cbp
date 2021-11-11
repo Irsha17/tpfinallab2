@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="arbolesclientes.h" />
+		<Unit filename="autoCargaCliente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="autoCargaCliente.h" />
 		<Unit filename="cliente.c">
 			<Option compilerVar="CC" />
 		</Unit>
