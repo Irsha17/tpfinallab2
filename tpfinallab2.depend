@@ -1,4 +1,5 @@
 # depslib dependency file v1.0
+<<<<<<< Updated upstream
 1635292306 source:c:\users\fernando\desktop\practica\practica\giaaaaaaaaaaaaaaaaaaaaaaan.rtf\tpfinallab2\cliente.c
 
 1635294362 source:c:\users\fernando\desktop\practica\practica\giaaaaaaaaaaaaaaaaaaaaaaan.rtf\tpfinallab2\main.c
@@ -6,6 +7,15 @@
 	<stdlib.h>
 
 1635522312 source:c:\users\usuario\documents\github\tpfinallab2\main.c
+=======
+1636416618 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\cliente.c
+	"cliente.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1636417356 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\main.c
+>>>>>>> Stashed changes
 	<stdio.h>
 	<stdlib.h>
 	"cliente.h"
@@ -22,6 +32,7 @@
 	"cliente.h"
 	"listaConsumo.h"
 
+<<<<<<< Updated upstream
 1635520047 c:\users\usuario\documents\github\tpfinallab2\cliente.h
 	"consumo.h"
 
@@ -31,6 +42,23 @@
 1635520686 c:\users\usuario\documents\github\tpfinallab2\consumo.h
 
 1635521871 source:c:\users\usuario\documents\github\tpfinallab2\cliente.c
+=======
+1636416946 c:\users\fernando\desktop\mi repositorio\tpfinallab2\consumo.h
+	<string.h>
+	<stdio.h>
+
+1636417149 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\arbolesclientes.c
+	<stdio.h>
+	<stdlib.h>
+	"arbolesclientes.h"
+
+1636417015 c:\users\fernando\desktop\mi repositorio\tpfinallab2\arbolesclientes.h
+	"cliente.h"
+	"Lista_Consumo.h"
+
+1636416618 c:\users\fernando\desktop\mi repositorio\tpfinallab2\cliente.h
+	<string.h>
+>>>>>>> Stashed changes
 	<stdio.h>
 	<stdlib.h>
 	"cliente.h"
@@ -47,8 +75,13 @@
 	<stdlib.h>
 	"listaConsumo.h"
 
+<<<<<<< Updated upstream
 1635521871 source:c:\users\usuario\documents\github\tpfinallab2\menu.c
 	"menu.h"
+=======
+1636418909 c:\users\fernando\desktop\mi repositorio\tpfinallab2\lista_consumo.h
+	"consumo.h"
+>>>>>>> Stashed changes
 
 1635521969 c:\users\usuario\documents\github\tpfinallab2\menu.h
 

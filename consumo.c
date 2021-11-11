@@ -1,6 +1,19 @@
+<<<<<<< Updated upstream
 #include <stdio.h>
 #include <stdlib.h>
 #include "Consumo.h"
+=======
+#include "consumo.h"
+
+#include <string.h>
+#include <stdio.h>
+#include "cliente.h"
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "Consumo.h"#include "consumo.h"
+>>>>>>> Stashed changes
 #include <time.h>
 #include "cliente.h"
 
