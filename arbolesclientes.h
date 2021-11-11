@@ -20,4 +20,7 @@ nodoArbol* arrayClientes2Arbol(stCliente arrayCliente[],int validos);
 nodoArbol* insertarPorID(nodoArbol* arbol, stCliente cliente);
 stLiquidacion liquidarPeriodo(nodoArbol* cliente, int periodo);
 nodoArbol* eliminaNodoArbol(nodoArbol* aux, int id);
+nodoArbol * arbolMasDerecha(nodoArbol * arbol);
+nodoArbol * arbolMasIzquierdo(nodoArbol * arbol);
+int esHoja(nodoArbol * arbol);
 #endif // ARBOLESCLIENTES_H_INCLUDED
