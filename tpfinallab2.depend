@@ -7,13 +7,14 @@
 	<stdio.h>
 	<stdlib.h>
 
-1636672021 source:c:\users\usuario\documents\github\tpfinallab2\main.c
+1636728639 source:c:\users\usuario\documents\github\tpfinallab2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"cliente.h"
 	"consumo.h"
 	"listaConsumo.h"
 	"arbolesclientes.h"
+	<windows.h>
 
 1636416618 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\cliente.c
 	"cliente.h"
@@ -35,7 +36,7 @@
 	"cliente.h"
 	"string.h"
 
-1636725061 source:c:\users\usuario\documents\github\tpfinallab2\arbolclientes.c
+1636727653 source:c:\users\usuario\documents\github\tpfinallab2\arbolclientes.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

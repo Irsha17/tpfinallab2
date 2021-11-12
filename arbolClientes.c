@@ -220,4 +220,3 @@ stLiquidacion liquidarPeriodo(nodoArbol* cliente, int periodo){
     }
     return liquidacion;
 }
-
