@@ -35,7 +35,7 @@
 	"cliente.h"
 	"string.h"
 
-1636672021 source:c:\users\usuario\documents\github\tpfinallab2\arbolclientes.c
+1636725061 source:c:\users\usuario\documents\github\tpfinallab2\arbolclientes.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -43,7 +43,7 @@
 	"cliente.h"
 	"consumo.h"
 
-1636672021 c:\users\usuario\documents\github\tpfinallab2\arbolesclientes.h
+1636725061 c:\users\usuario\documents\github\tpfinallab2\arbolesclientes.h
 	"cliente.h"
 	"listaConsumo.h"
 
@@ -55,9 +55,9 @@
 1636672021 c:\users\usuario\documents\github\tpfinallab2\listaconsumo.h
 	"consumo.h"
 
-1636672021 c:\users\usuario\documents\github\tpfinallab2\consumo.h
+1636725061 c:\users\usuario\documents\github\tpfinallab2\consumo.h
 
-1636672021 source:c:\users\usuario\documents\github\tpfinallab2\cliente.c
+1636725061 source:c:\users\usuario\documents\github\tpfinallab2\cliente.c
 	<stdio.h>
 	<stdlib.h>
 	"cliente.h"
@@ -80,21 +80,15 @@
 1636416618 c:\users\fernando\desktop\mi repositorio\tpfinallab2\cliente.h
 	<string.h>
 
-1636672021 source:c:\users\usuario\documents\github\tpfinallab2\consumo.c
-	<stdio.h>
-	<stdlib.h>
-	"Consumo.h"
-	"consumo.h"
+1636725061 source:c:\users\usuario\documents\github\tpfinallab2\consumo.c
 	<string.h>
-	<stdio.h>
-	"cliente.h"
 	<stdio.h>
 	<stdlib.h>
 	"Consumo.h"
 	<time.h>
 	"cliente.h"
 
-1636672021 source:c:\users\usuario\documents\github\tpfinallab2\listaconsumo.c
+1636725061 source:c:\users\usuario\documents\github\tpfinallab2\listaconsumo.c
 	<stdio.h>
 	<stdlib.h>
 	"listaConsumo.h"
@@ -167,7 +161,7 @@
 
 1636641049 c:\users\usuario\onedrive\desktop\codes\tpfinallab2\autocargacliente.h
 
-1636672021 source:c:\users\usuario\documents\github\tpfinallab2\autocargacliente.c
+1636725061 source:c:\users\usuario\documents\github\tpfinallab2\autocargacliente.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

@@ -4,8 +4,7 @@
 #include "consumo.h"
 #include "listaConsumo.h"
 #include "arbolesclientes.h"
-
-<<<<<<< Updated upstream
+#include <windows.h>
 
 const char ARCH_CONSUMOS[]="consumos.dat";
 const char Archivo_Cliente[]="Clientes.dat";
@@ -241,12 +240,9 @@ int main(){
         system("pause\n");
         system("pause\n");
 
-=======
-const char ARCH_CONSUMOS[]="consumos.dat";
 
-int main()
-{
- color(23);
+
+    color(23);
     printf("Trabajo Practico Final Laboratorio 2\n");
     printf("\n >>> INTEGRANTES <<<\n");
     printf("\n\t ROBLES, Fernando\n");
@@ -255,7 +251,7 @@ int main()
     printf("\n\n\n");
     system("pause");
     system("clr");
->>>>>>> Stashed changes
+
     return 0;
 }
 
