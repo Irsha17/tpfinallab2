@@ -7,7 +7,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1636728639 source:c:\users\usuario\documents\github\tpfinallab2\main.c
+1636729225 source:c:\users\usuario\documents\github\tpfinallab2\main.c
 	<stdio.h>
 	<stdlib.h>
 	"cliente.h"
@@ -36,7 +36,7 @@
 	"cliente.h"
 	"string.h"
 
-1636727653 source:c:\users\usuario\documents\github\tpfinallab2\arbolclientes.c
+1636732750 source:c:\users\usuario\documents\github\tpfinallab2\arbolclientes.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

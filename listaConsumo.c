@@ -25,6 +25,33 @@ nodoLista* agregarAlPrincipio(nodoLista* lista, nodoLista* nuevo){
     return nuevo;
 }
 
+//AGREGAR EN ORDEN SEGUN FECHA
+
+nodoLista* agregarEnOrdenPorFecha(nodoLista* lista, nodoLista* nuevoNodo){
+    if(!lista){
+        lista=nuevoNodo;
+    }else{
+        if(nuevoNodo->dato.mes < lista->dato.mes){
+            lista = agregarAlPrincipio(lista, nuevoNodo);
+        }
+        else if(nuevoNodo->dato.mes == lista->dato.mes && nuevoNodo->dato.dia < lista->dato.dia){
+            lista = agregarAlPrincipio(lista, nuevoNodo);
+        }
+        else{
+            nodoLista* ante = lista;
+            nodoLista* seg = lista->sig;
+            while(seg != NULL && nuevoNodo->dato.mes >= seg->dato.mes){
+                ante = seg;
+                seg = seg->sig;
+            }
+            ante->sig = nuevoNodo;
+            nuevoNodo->sig = seg;
+        }
+    }
+
+    return lista;
+}
+
 //MUESTRA LISTA
 void mostrarLista(nodoLista* lista){
     nodoLista* seg = lista;
@@ -68,3 +95,4 @@ int datosConsumidosPorPeriodo(nodoLista* lista, int periodo){
     }
     return datos;
 }
+

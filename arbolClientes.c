@@ -75,7 +75,7 @@ nodoArbol* cargarArbolConListas(nodoArbol* arbol, char archConsumos[]){
     if(parchiConsumos){
         while(fread(&cons, sizeof(stConsumo), 1, parchiConsumos)>0){
             aux = buscaNodoArbolClientePorId(arbol, cons.idCliente);
-            aux->consumos = agregarAlPrincipio(aux->consumos, crearNodoLista(cons));
+            aux->consumos = agregarEnOrdenPorFecha(aux->consumos, crearNodoLista(cons));
         }
 
     }
