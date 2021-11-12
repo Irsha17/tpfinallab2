@@ -185,7 +185,7 @@ int main(){
                     }else{
                         validosClientes = file2ArrayClientes(arrayClientes, 50);
                         arbolClientes = arrayClientes2Arbol(arrayClientes, validosClientes);
-                        arbolClientes = cargarArbol(arbolClientes, ARCH_CONSUMOS);
+                        arbolClientes = cargarArbolConListas(arbolClientes, ARCH_CONSUMOS);
                         printf("\n ***** EL ARBOL HA SIDO CARGADO CORRECTAMENTE *****\n");
                     }
                     system("pause");

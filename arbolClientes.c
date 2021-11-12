@@ -5,10 +5,17 @@
 #include "cliente.h"
 #include "consumo.h"
 
+
+///............................FUNCIONES PARA INICIAR ARBOL, CREAR NODOS, AGREGARLOS Y BUSCARLOS..............................
+///...........................................................................................................................
+
+
+//INICIA ARBOL
 nodoArbol* inicArbolClientes(){
     return NULL;
 }
 
+//CREA NODO ARBOL, CON SU ESTRUCTURA CLIENTE Y SE LE INICIALIZA UNA LISTA DE CONSUMOS
 nodoArbol* crearNodoArbolCliente(stCliente cliente){
     nodoArbol* nuevo = (nodoArbol*)malloc(sizeof(nodoArbol));
     nuevo->dato = cliente;
@@ -19,6 +26,7 @@ nodoArbol* crearNodoArbolCliente(stCliente cliente){
     return nuevo;
 }
 
+//AGREGA UN NODO AL ARBOL, DE FORMA ORDENADA. MENORES POR LA IZQUIERDA, MAYORES POR LA DERECHA.
 nodoArbol* agregarArbolClientes(nodoArbol* arbol, nodoArbol* nuevo){
     if(arbol==NULL){
         arbol = nuevo;
@@ -35,6 +43,7 @@ nodoArbol* agregarArbolClientes(nodoArbol* arbol, nodoArbol* nuevo){
     return arbol;
 }
 
+//BUSCA EN EL ARBOL, EL CLIENTE QUE COINCIDA CON EL ID PASADO POR PARAMETRO. LUEGO LO RETORNA
 nodoArbol* buscaNodoArbolClientePorId(nodoArbol* arbol, int id){
     nodoArbol* respuesta = NULL;
     if(arbol){
@@ -51,7 +60,14 @@ nodoArbol* buscaNodoArbolClientePorId(nodoArbol* arbol, int id){
     return respuesta;
 }
 
-nodoArbol* cargarArbol(nodoArbol* arbol, char archConsumos[]){
+
+
+///.....................................FUNCIONES PARA CARGAR ARBOL DESDE ARCHIVOS............................................
+///...........................................................................................................................
+
+
+//SE RECORRE EL ARCHIVO DE CONSUMOS Y SE AGREGA CADA CONSUMO A SU CLIENTE CORRESPONDIENTE, SEGUN EL ID QUE LOS RELACIONA.
+nodoArbol* cargarArbolConListas(nodoArbol* arbol, char archConsumos[]){
     FILE *parchiConsumos = fopen(archConsumos, "rb");
     stConsumo cons;
     nodoArbol* aux = NULL;
@@ -69,6 +85,7 @@ nodoArbol* cargarArbol(nodoArbol* arbol, char archConsumos[]){
 
 }
 
+//SE DIVIDE EL ARREGLO DE CLIENTES CON EL FIN DE QUE, AL PASAR CADA CLIENTE AL ARBOL, ESTE QUEDE BALANCEADO.
 nodoArbol* arrayClientes2Arbol(stCliente arrayCliente[],int validos){
     nodoArbol* arbol = NULL;
     int i, mitad=(validos-1)/2;
@@ -97,6 +114,10 @@ nodoArbol* arrayClientes2Arbol(stCliente arrayCliente[],int validos){
 }
 
 
+///.....................................FUNCIONES MOSTRAR UN ARBOL DE LISTAS..................................................
+///...........................................................................................................................
+
+//MUESTRA ARBOL INORDER
 void enOrdenClientes(nodoArbol* arbol){
     if(arbol){
         enOrdenClientes(arbol->izq);
@@ -105,6 +126,7 @@ void enOrdenClientes(nodoArbol* arbol){
     }
 }
 
+//MUESTRA NODO ARBOL CON SU ESTRUCTURA CLIENTE Y SU RESPECTIVA LISTA DE CONSUMOS
 void muestraNodoArbolClientes(nodoArbol* nodo){
     if(nodo->dato.id){
     printf("\n Cliente \n");
@@ -115,46 +137,11 @@ void muestraNodoArbolClientes(nodoArbol* nodo){
     }
 }
 
-nodoArbol * arbolMasDerecha(nodoArbol * arbol){
-    nodoArbol * seg = arbol;
-    while(seg->der) {
-        seg = seg->der;
-    }
-    return seg;
-}
 
-nodoArbol * arbolMasIzquierdo(nodoArbol * arbol){
-    nodoArbol * seg = arbol;
-    while(seg->izq) {
-        seg = seg->izq;
-    }
-    return seg;
-}
+///.....................................FUNCIONES PARA ELIMINAR NODO DEL ARBOL................................................
+///...........................................................................................................................
 
-int esHoja(nodoArbol * arbol) {
-    int rta = 0;
-    if(arbol) {
-        if(!arbol->izq && !arbol->der){
-            rta = 1;
-        }
-    }
-    return rta;
-}
-
-
-stLiquidacion liquidarPeriodo(nodoArbol* cliente, int periodo){
-    stLiquidacion liquidacion;
-    if(cliente){
-        strcpy(liquidacion.nombre, cliente->dato.nombre);
-        strcpy(liquidacion.apellido, cliente->dato.apellido);
-        liquidacion.idCliente = cliente->dato.id;
-        liquidacion.periodo = periodo;
-        liquidacion.datosConsumidos = datosConsumidosPorPeriodo(cliente->consumos, periodo);
-    }
-    return liquidacion;
-}
-
-
+//ELIMINA UN NODO DEL ARBOL
 nodoArbol* eliminaNodoArbol(nodoArbol* aux, int id){
 
     if(aux) {
@@ -184,3 +171,53 @@ nodoArbol* eliminaNodoArbol(nodoArbol* aux, int id){
     }
     return aux;
 }
+
+
+
+//RETORNA EL NODO ARBOL QUE SE ENCUENTRA MAS A LA DERECHA
+nodoArbol * arbolMasDerecha(nodoArbol * arbol){
+    nodoArbol * seg = arbol;
+    while(seg->der) {
+        seg = seg->der;
+    }
+    return seg;
+}
+
+//RETORNA EL NODO ARBOL QUE SE ENCUENTRA MAS A LA IZQUIERDA
+nodoArbol * arbolMasIzquierdo(nodoArbol * arbol){
+    nodoArbol * seg = arbol;
+    while(seg->izq) {
+        seg = seg->izq;
+    }
+    return seg;
+}
+
+//RETORNA 1 EN CASO DE QUE EL NODO ARBOL SEA HOJA, ES DECIR, QUE NO TIENE HIJOS
+int esHoja(nodoArbol * arbol) {
+    int rta = 0;
+    if(arbol) {
+        if(!arbol->izq && !arbol->der){
+            rta = 1;
+        }
+    }
+    return rta;
+}
+
+
+///.....................................FUNCION DE LIQUIDACION DE CONSUMOS....................................................
+///...........................................................................................................................
+
+
+//RECIBE EL NODO DEL CLIENTE Y EL PERIODO AL QUE SE LE DESEA REALIZAR LA LIQUIDACION DE SUS CONSUMOS.
+stLiquidacion liquidarPeriodo(nodoArbol* cliente, int periodo){
+    stLiquidacion liquidacion;
+    if(cliente){
+        strcpy(liquidacion.nombre, cliente->dato.nombre); //LOS DATOS SON ALMACENADOS EN UNA ESTRUCTURA LIQUIDACION
+        strcpy(liquidacion.apellido, cliente->dato.apellido);
+        liquidacion.idCliente = cliente->dato.id;
+        liquidacion.periodo = periodo;
+        liquidacion.datosConsumidos = datosConsumidosPorPeriodo(cliente->consumos, periodo);//SE LLAMA A LA FUNCION QUE SE ENCARGA DE SUMAR LOS DATOS CONSUMIDOS SEGUN PERIODO.
+    }
+    return liquidacion;
+}
+

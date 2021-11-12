@@ -46,6 +46,6 @@ int ultimoId(char archivo[]);                                                   
 void muestraConsumosPorCliente(char archivo[], int id);                                       ///
 void buscarConsumosXFecha(char archivoConsumos[], int anio, int mes, int dia);                ///
 void modificarConsumoAltaBaja (char archivoConsumos[], int anio, int mes, int dia);           ///
-//stFecha fechaAleatoria();
+
 
 #endif // CONSUMO_H_INCLUDED

@@ -4,7 +4,11 @@
 #include "string.h"
 #include "autoCargaCliente.h"
 
-//FUNCION PARA CARGAR UN CLIENTE
+///.....................................FUNCIONES PARA CARGAR CLIENTES A UN ARCHIVO...........................................
+///...........................................................................................................................
+
+
+//FUNCION PARA CARGAR UN CLIENTE DE FORMA MANUAL
 void cargarCliente(char archivo[]){// RECIBE COMO PARAMETRO EL ARCHIVO DONDE SE GUARDA EL CLIENTE
     FILE * archi;//puntero al archivo
     stCliente cliente;//creamos el nombre de la estrutura para cargar los datos
@@ -98,7 +102,7 @@ void cargarCliente(char archivo[]){// RECIBE COMO PARAMETRO EL ARCHIVO DONDE SE 
 }
 
 
-
+//FUNCION PARA CARGAR UNA DETERMINADA CANTIDAD DE CLIENTES DE FORMA ALEATORIA Y AGREGARLOS A UN ARCHIVO
 void cargaClienteRandom(char arch[]){
     FILE *parchi = fopen(arch, "ab");
     stCliente e;
@@ -110,7 +114,7 @@ void cargaClienteRandom(char arch[]){
     fclose(parchi);
 
 }
-
+//CARA UN CLIENTE DE FORMA ALEATORIA. RETORNA EL CLIENTE
 stCliente cargaUnClienteRand(FILE *fp, int i){
     stCliente e;
     int validacion = 0;
@@ -140,6 +144,11 @@ stCliente cargaUnClienteRand(FILE *fp, int i){
     return e;
 }
 
+///....................................FUNCIONES DE VALIDACION DE DATOS DEL CLIENTE...........................................
+///.................................... evita ingresar un cliente con datos repetidos..........................................
+
+
+//VALIDA SI EL NUMERO DE CLIENTE PASADO POR PARAMETRO, EXISTE DENTRO DE UN ARCHIVO. EN CASO VERDADERO, RETORNA 1.
 int validacionNroCliente (char archivo[],int nroCliente){
     stCliente aux;
     int existe = 0;
@@ -158,6 +167,7 @@ int validacionNroCliente (char archivo[],int nroCliente){
     }  return existe;
 }
 
+//VALIDA SI EL NUMERO DE DNI PASADO POR PARAMETRO, EXISTE DENTRO DE UN ARCHIVO. EN CASO VERDADERO, RETORNA 1.
 int validacionClienteDni(char archivo[],char dni[]){
     FILE * archi;
     stCliente aux;
@@ -176,6 +186,8 @@ int validacionClienteDni(char archivo[],char dni[]){
     }  return existe;
 }
 
+
+////VALIDA SI EL EMAIL PASADO POR PARAMETRO, EXISTE DENTRO DE UN ARCHIVO. EN CASO VERDADERO, RETORNA 1.
 int validacionEmail(char archivo[],int dim,char email[][dim]){
     FILE * archi;
     stCliente aux;
@@ -194,7 +206,12 @@ int validacionEmail(char archivo[],int dim,char email[][dim]){
     }  return existe;
 }
 
-//FUNCION PARA MOSTRAR TODOS LOS CLIENTES CARGADOS
+
+///.....................................FUNCIONES PARA MOSTRAR CLIENTES ......................................................
+///...........................................................................................................................
+
+
+//FUNCION PARA MOSTRAR TODOS LOS CLIENTES CARGADOS EN UN ARCHIVO
 void mostrarArchClientes(char archivo[]){//RECIBE COMO PARAMETRO EL ARCHIVO QUE QUEREMOS MOSTRAR
 
     FILE * archi;
@@ -218,20 +235,8 @@ void mostrarArchClientes(char archivo[]){//RECIBE COMO PARAMETRO EL ARCHIVO QUE 
     system("cls");
 }
 
-void consultaIdCliente(char archivo[], int nro){
-    stCliente a;
-    FILE *archi=fopen(archivo, "rb");
 
-    if(archi){
-        while(fread(&a, sizeof(stCliente),1,archi)>0){
-            if(a.id==nro){
-                muestraUnCliente(a);
-            }
-        } fclose(archi);
-    }
-}
-
-//FUNCION PARA IMPRIMIR POR PANTALLA LOS CLIENTES
+//FUNCION PARA IMPRIMIR POR PANTALLA UN CLIENTE
 void muestraUnCliente(stCliente cliente){
     printf("-------------------------------------------------------------------\n");
     printf("ID Cliente:           |%d \n",cliente.id);
@@ -247,32 +252,41 @@ void muestraUnCliente(stCliente cliente){
 }
 
 
-//FUNCION PARA MOSTRAR UN SOLO CLIENTE
-void mostrarClienteArch(stCliente cliente, int dato){//RECIBE COMO PARAMETRO LA ESTRUCTURA Y EL DATO PARA SEÑALAR CUAL CLIENTE SE DESEA MOSTRAR
-
+//FUNCION PARA MOSTRAR UN SOLO CLIENTE EN CASO DE QUE COINCIDA CON ID PASADO POR PARAMETRO
+void mostrarClienteArch(int dato){//RECIBE COMO PARAMETRO LA ESTRUCTURA Y EL DATO PARA SEÑALAR CUAL CLIENTE SE DESEA MOSTRAR
     FILE *archi;
     archi=fopen("Clientes.dat", "rb");//Abrimos el archivo en modo lectura
-    fread(&cliente, sizeof(stCliente),1, archi);
-
-    while(!feof(archi)){//Mientras que no se llegue al final del archivo buscamos igualdad en el dato buscado y los datos cargados
-
-        if (dato == cliente.id){//Si hay igualdad muestra por pantalla los datos de cliente buscado
-
-            printf("ID Cliente:           |%d \n",cliente.id);
-            printf("Numero Cliente:       |%d \n",cliente.id);
-            printf("Nombre y Apellido:    |%s %s\n",cliente.nombre, cliente.apellido);
-            printf("dni:                  |%d \n",cliente.dni);
-            printf("Correo Electronico:   |%s \n",cliente.email);
-            printf("Celular:              |%s \n",cliente.movil);
-            printf("Domicilio:            |%s",cliente.domicilio);
-            printf("Estado:               |%s \n",cliente.baja);
-
-            printf("-----------------------------------------------------------------\n");
-        } fread(&cliente, sizeof(stCliente), 1, archi);//Avanza hasta llegar al final del archivo
+    stCliente cliente;
+    if(archi){
+        while(fread(&cliente, sizeof(stCliente), 1, archi)>0){
+            if (dato == cliente.id){//Si hay igualdad muestra por pantalla los datos de cliente buscado
+                muestraUnCliente(cliente);
+            }
+        }
     }
     system("pause\n");
     system("cls");
 }
+
+
+///.....................................FUNCIONES PARA CONSULTA Y MODIFICACION DE CLIENTES ...................................
+///...........................................................................................................................
+
+
+//BUSCA UN CLIENTE POR ID PASADO POR PARAMETRO, UNA VEZ ENCONTRADO, LO MUESTRA.
+void consultaIdCliente(char archivo[], int nro){
+    stCliente a;
+    FILE *archi=fopen(archivo, "rb");
+
+    if(archi){
+        while(fread(&a, sizeof(stCliente),1,archi)>0){
+            if(a.id==nro){
+                muestraUnCliente(a);
+            }
+        } fclose(archi);
+    }
+}
+
 
 //FUNCION PARA MODIFICAR DATOS DEL CLIENTE
 void modificarCliente(char archivo[]){//RECIBE COMO EL ARCHIVO DE LOS CLIENTES
@@ -288,7 +302,7 @@ void modificarCliente(char archivo[]){//RECIBE COMO EL ARCHIVO DE LOS CLIENTES
     if (archi!=NULL){//Si el archivo no esta cerrado
         printf("Ingrese el ID del Cliente que desea modificar\n");//Ingresamos el id para buscar el cliente que se desea modificar
         scanf("%d", &id);
-        mostrarClienteArch(aux,id);
+        mostrarClienteArch(id);
 
         fread(&aux, sizeof(stCliente),1, archi);//enviamos los datos cargados
 
@@ -363,7 +377,7 @@ void bajaCliente(char archivo[]){//RECIBE POR PARAMETRO NUESTRO ARCHIVO DE CLIEN
         printf("Ingrese el ID del Cliente que desea modificar\n");
         scanf("%d", &id);
 
-        mostrarClienteArch(aux,id);
+        mostrarClienteArch(id);
 
         while(!feof(archi)){//Cuando se encuentra al cliente modificamos su estado de ALTA a BAJA o de la forma contraria
 
@@ -393,6 +407,10 @@ void bajaCliente(char archivo[]){//RECIBE POR PARAMETRO NUESTRO ARCHIVO DE CLIEN
     system("cls");
 }
 
+
+///.....................................FUNCION PARA CONTAR CLIENTES EN UN ARCHIVO............................................
+///...........................................................................................................................
+
 int contarIdCliente(char archivo[]){ //recorre el archivo para calcular cantidad de clientes ya cargados
 
     FILE *archiclientes;
@@ -418,6 +436,12 @@ int contarIdCliente(char archivo[]){ //recorre el archivo para calcular cantidad
     return i;
 }
 
+
+
+///...............................FUNCION PARA PASAR CLIENTES DE UN ARCHIVO, A UN ARREGLO.....................................
+///...........................................................................................................................
+
+//PASA CLIENTES A UN ARREGLO, RETORNA LOS VALIDOS.
 int file2ArrayClientes(stCliente arreglo[], int dim){
     FILE *parchic = fopen("Clientes.dat","rb");
     stCliente c;

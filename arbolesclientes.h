@@ -15,7 +15,7 @@ nodoArbol* crearNodoArbolCliente(stCliente cliente);
 nodoArbol* buscaNodoArbolClientePorId(nodoArbol* arbol, int id);
 void muestraNodoArbolClientes(nodoArbol* nodo);
 void enOrdenClientes(nodoArbol* arbol);
-nodoArbol* cargarArbol(nodoArbol* arbol, char archConsumos[]);
+nodoArbol* cargarArbolConListas(nodoArbol* arbol, char archConsumos[]);
 nodoArbol* arrayClientes2Arbol(stCliente arrayCliente[],int validos);
 nodoArbol* insertarPorID(nodoArbol* arbol, stCliente cliente);
 stLiquidacion liquidarPeriodo(nodoArbol* cliente, int periodo);

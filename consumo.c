@@ -1,22 +1,15 @@
-<<<<<<< Updated upstream
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "Consumo.h"
-=======
-#include "consumo.h"
-
-#include <string.h>
-#include <stdio.h>
-#include "cliente.h"
-
-
-#include <stdio.h>
-#include <stdlib.h>
-#include "Consumo.h"#include "consumo.h"
->>>>>>> Stashed changes
 #include <time.h>
 #include "cliente.h"
 
+
+///.....................................FUNCIONES PARA CARGAR CONSUMOS ......................................................
+///...........................................................................................................................
+
+// CARGA UN CONSUMO DE FORMA MANUAL.
 void cargaUnConsumo(char archivo[])
 {
     stFecha f;
@@ -76,6 +69,7 @@ void cargaUnConsumo(char archivo[])
 
 }
 
+//CARGA UNA DETERMINADA CANTIDAD DE CONSUMOS, DE FORMA ALEATORIA.
 void cargaConsumosRandom(char archivo[], char archClientes[]){ // Carga automaticamente mil consumos random.
     int validos=contarIdCliente("Clientes.dat");
     stCliente c;
@@ -109,39 +103,8 @@ void cargaConsumosRandom(char archivo[], char archClientes[]){ // Carga automati
     }
 }
 
-void muestraUnConsumo(stConsumo consumo){
-    printf("\n Id.....................: %d", consumo.id);
-    printf("\n Id de Cliente..........: %d", consumo.idCliente);
-    printf("\n Fecha..................: %.2d/%.2d/%d", consumo.dia, consumo.mes, consumo.anio);
-    printf("\n Datos Consumidos.......: %d Mb", consumo.datosConsumidos);
-    printf("\n Baja...................: %s", (consumo.baja== 0)?"Activo":"Eliminado");
-    printf("\n---------------------------------------------------");
-}
-
-void muestraUnaLiquidacion(stLiquidacion l){
-    printf("\n--------------------------------------------------");
-    printf("\n Nombre y Apellido......: %s %s",l.nombre, l.apellido);
-    printf("\n Id de Cliente..........: %d", l.idCliente);
-    printf("\n Periodo................: %d", l.periodo);
-    printf("\n Datos Consumidos.......: %d Mb", l.datosConsumidos);
-    printf("\n--------------------------------------------------\n");
-}
-
-void muestraArchivo(char archivo[]){ // Recorre el archivo y muestra el archivo completo utilizando la siguiente funcion de mostrar un consumo
-
-    FILE *pArchi = fopen(archivo, "rb");
-    stConsumo a;
-
-    if(pArchi){
-
-        while(fread(&a, sizeof(stConsumo), 1, pArchi)>0){
-            muestraUnConsumo(a);
-        }
-        fclose(pArchi);
-    }
-}
-
-int ultimoId(char archivo[]){ //busca el ultimo id de consumo generado por el sistema
+//BUSCA EL ULTIMO ID DE CONSUMO, DENTRO DE UN ARCHIVO, Y LO RETORNA.
+int ultimoId(char archivo[]){
 
     FILE *pArchi = fopen(archivo, "rb");
     stConsumo a;
@@ -157,8 +120,9 @@ int ultimoId(char archivo[]){ //busca el ultimo id de consumo generado por el si
     } return ultimoId;
 }
 
-stFecha fechaAleatoria(){ // Cargar estructura de fecha de forma aleatoria (FORMATEA LA FECHA ACTUAL PARA OBTENERLA)
 
+// CARGA ESTRUCTURA FECHA DE FORMA ALEATORIA (FORMATEA LA FECHA ACTUAL PARA OBTENERLA) Y LA RETORNA.
+stFecha fechaAleatoria(){
     stFecha f;   //TRABAJAMOS ESTRUCTURA FECHA
     int mesActual;
     time_t tiempo;   //NOS DEVUELVE EL TIEMPO
@@ -188,7 +152,51 @@ stFecha fechaAleatoria(){ // Cargar estructura de fecha de forma aleatoria (FORM
     }    return f;
 }
 
-void muestraConsumosPorCliente(char archivo[], int id){      //MUESTRA UN CONSUMO SOLICITANDO IDCLIENTE
+
+///.....................................FUNCIONES PARA MOSTRAR CONSUMOS Y LIQUIDACIONES.......................................
+///...........................................................................................................................
+
+
+void muestraUnConsumo(stConsumo consumo){
+    printf("\n Id.....................: %d", consumo.id);
+    printf("\n Id de Cliente..........: %d", consumo.idCliente);
+    printf("\n Fecha..................: %.2d/%.2d/%d", consumo.dia, consumo.mes, consumo.anio);
+    printf("\n Datos Consumidos.......: %d Mb", consumo.datosConsumidos);
+    printf("\n Baja...................: %s", (consumo.baja== 0)?"Activo":"Eliminado");
+    printf("\n---------------------------------------------------");
+}
+
+void muestraUnaLiquidacion(stLiquidacion l){
+    printf("\n--------------------------------------------------");
+    printf("\n Nombre y Apellido......: %s %s",l.nombre, l.apellido);
+    printf("\n Id de Cliente..........: %d", l.idCliente);
+    printf("\n Periodo................: %d", l.periodo);
+    printf("\n Datos Consumidos.......: %d Mb", l.datosConsumidos);
+    printf("\n--------------------------------------------------\n");
+}
+
+// Recorre el archivo y muestra el archivo completo utilizando la siguiente funcion de mostrar un consumo.
+void muestraArchivo(char archivo[]){
+
+    FILE *pArchi = fopen(archivo, "rb");
+    stConsumo a;
+
+    if(pArchi){
+
+        while(fread(&a, sizeof(stConsumo), 1, pArchi)>0){
+            muestraUnConsumo(a);
+        }
+        fclose(pArchi);
+    }
+}
+
+
+///.....................................FUNCIONES DE BUSQUEDA DE CONSUMOS Y MODIFICACION......................................
+///...........................................................................................................................
+
+
+//MUESTRA LOS CONSUMOS DE UN DETERMINADO CLIENTE QUE COINCIDE CON EL ID PASADO POR PARAMETRO.
+void muestraConsumosPorCliente(char archivo[], int id){
 
     FILE *pArchi = fopen(archivo, "rb");
     stConsumo a;
@@ -202,6 +210,7 @@ void muestraConsumosPorCliente(char archivo[], int id){      //MUESTRA UN CONSUM
     }
 }
 
+//MUESTRA LOS CONSUMOS QUE COINCIDEN CON UNA FECHA ESPECIFICA, PASADA POR PARAMETRO.
 void buscarConsumosXFecha(char archivoConsumos[], int anio, int mes, int dia){
 
     stConsumo a;
@@ -216,7 +225,7 @@ void buscarConsumosXFecha(char archivoConsumos[], int anio, int mes, int dia){
     }
 }
 
-//modifica el Alta o baja de un consumo buscandolo por fecha
+//MODIFICA EL ALTA O BAJA DE UN CONSUMO, BUSCADO POR FECHA PASADA POR PARAMETRO.
 void modificarConsumoAltaBaja (char archivoConsumos[], int anio, int mes, int dia){
     stConsumo a;
     FILE *pArchi = fopen(archivoConsumos, "r+b");
