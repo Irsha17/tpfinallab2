@@ -5,6 +5,7 @@
 #include <string.h>
 #include "gotoxy.h"
 #include "menu.h"
+#include "windows.h"
 
 #include "cliente.h"
 #include "consumo.h"
@@ -81,7 +82,7 @@ int main(){
                 break;
                 ///SUB-MENU MODIFICAR CLIENTE
                 case 50:
-                    system("cls");
+                    //system("cls");
                     menu2();
                     fflush(stdin);
                     seleccion = getch();
@@ -294,8 +295,5 @@ int main(){
     while(opcion!=48);
         system("pause\n");
         system("pause\n");
-
-    menu_integrantes();
-
     return 0;
 }

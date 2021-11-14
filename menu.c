@@ -16,6 +16,9 @@ void menu()
     printf("               FISCALIZAMOS SUS CONSUMOS PARA SU TRANQUILIDAD                  \n");
 
     lineaHInf();
+
+    printf("\n\n\n\n");
+    menu_integrantes();
     system("pause");
     system("cls");
 
@@ -245,13 +248,18 @@ void lineaVertical()
 
 void menu_integrantes()
 {
-    printf("Trabajo Practico Final Laboratorio 2\n");
-    printf("\n >>> INTEGRANTES <<<\n");
-    printf("\n\t ROBLES, Fernando\n");
-    printf("\n\t LOPEZ, Ciro\n");
-    printf("\n\t Eulloque, Rodrigo\n");
-    printf("\n\n\n");
-
-    system("pause");
-    system("cls");
+    gotoxy(400,25);
+    printf("\n         --------------------------------------------------------------------------\n");
+    printf("\t                   TRABAJO PRACTICO FINAL - LABORATORIO 2 -  2021                  \n");
+    printf("\n\t                                 >>> INTEGRANTES  <<<\n");
+    printf("\n\t                           **************************\n");
+    printf("\n\t                           *   LOPEZ, Ciro          *\n");
+    printf("\n\t                           *                        *\n");
+    printf("\n\t                           *   EULLOQUE, Rodrigo    *\n");
+    printf("\n\t                           *                        *\n");
+    printf("\n\t                           *   ROBLES, Fernando     *\n");
+    printf("\n\t                           *                        *\n");
+    printf("\n\t                           **************************\n");
+    printf("\n          TECNICATURA UNIVERSITARIA EN PROGRAMACION           UTN MAR DEL PLATA\n");
+    printf("\n        ----------------------------------------------------------------------------\n\n");
 }
