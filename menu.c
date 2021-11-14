@@ -16,6 +16,8 @@ void menu()
     printf("               FISCALIZAMOS SUS CONSUMOS PARA SU TRANQUILIDAD                  \n");
 
     lineaHInf();
+    system("pause");
+    system("cls");
 
 
     printf("\n\n\n");

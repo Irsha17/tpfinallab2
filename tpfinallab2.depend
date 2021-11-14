@@ -6,7 +6,7 @@
 	"string.h"
 	"autoCargaCliente.h"
 
-1636858012 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\main.c
+1636861243 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -14,6 +14,7 @@
 	<string.h>
 	"gotoxy.h"
 	"menu.h"
+	"windows.h"
 	"cliente.h"
 	"consumo.h"
 	"lista_Consumo.h"
@@ -68,7 +69,7 @@
 
 1636844096 c:\users\fernando\desktop\mi repositorio\tpfinallab2\autocargacliente.h
 
-1636857934 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\menu.c
+1636861401 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\menu.c
 	"menu.h"
 
 1636856924 c:\users\fernando\desktop\mi repositorio\tpfinallab2\menu.h
