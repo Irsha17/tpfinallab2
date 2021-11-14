@@ -1,49 +1,75 @@
 # depslib dependency file v1.0
-1635377349 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\cliente.c
-	"cliente.h"
-	<string.h>
+1636843864 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\cliente.c
 	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+	"string.h"
+	"autoCargaCliente.h"
 
-1635378108 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\main.c
+1636858012 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
-	<windows.h>
 	<conio.h>
 	<string.h>
 	"gotoxy.h"
+	"menu.h"
 	"cliente.h"
 	"consumo.h"
+	"lista_Consumo.h"
 	"arbolesclientes.h"
+	<windows.h>
 
-1635375421 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\consumo.c
-	"consumo.h"
+1636843447 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\consumo.c
 	<string.h>
 	<stdio.h>
+	<stdlib.h>
+	"Consumo.h"
+	<time.h>
 	"cliente.h"
 
-1635378900 c:\users\fernando\desktop\mi repositorio\tpfinallab2\consumo.h
-	<string.h>
-	<stdio.h>
+1636843371 c:\users\fernando\desktop\mi repositorio\tpfinallab2\consumo.h
 
-1635299325 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\arbolesclientes.c
+1636844309 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\arbolesclientes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 	"arbolesclientes.h"
-
-1635379102 c:\users\fernando\desktop\mi repositorio\tpfinallab2\arbolesclientes.h
-
-1635379072 c:\users\fernando\desktop\mi repositorio\tpfinallab2\cliente.h
-	<string.h>
-	<stdio.h>
+	"cliente.h"
 	"consumo.h"
 
-1491400450 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\gotoxy.c
+1636843682 c:\users\fernando\desktop\mi repositorio\tpfinallab2\arbolesclientes.h
+	"cliente.h"
+	"Lista_Consumo.h"
+
+1636843829 c:\users\fernando\desktop\mi repositorio\tpfinallab2\cliente.h
+	"consumo.h"
+
+1636419334 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\gotoxy.c
 	<stdio.h>
 	<stdlib.h>
 	<windows.h>
 
-1491399896 c:\users\fernando\desktop\mi repositorio\tpfinallab2\gotoxy.h
+1636419334 c:\users\fernando\desktop\mi repositorio\tpfinallab2\gotoxy.h
 
-1635379050 c:\users\fernando\desktop\mi repositorio\tpfinallab2\lista_consumo.h
+1636843593 c:\users\fernando\desktop\mi repositorio\tpfinallab2\lista_consumo.h
+	"consumo.h"
 
-1635378763 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\lista_consumo.c
+1636843593 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\lista_consumo.c
+	<stdio.h>
+	<stdlib.h>
+	"lista_Consumo.h"
+
+1636844096 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\autocargacliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"autoCargaCliente.h"
+
+1636844096 c:\users\fernando\desktop\mi repositorio\tpfinallab2\autocargacliente.h
+
+1636857934 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\menu.c
+	"menu.h"
+
+1636856924 c:\users\fernando\desktop\mi repositorio\tpfinallab2\menu.h
 
