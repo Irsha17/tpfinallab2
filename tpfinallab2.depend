@@ -6,7 +6,7 @@
 	"string.h"
 	"autoCargaCliente.h"
 
-1636861457 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\main.c
+1637017811 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -15,11 +15,11 @@
 	"gotoxy.h"
 	"menu.h"
 	"windows.h"
+	"swicht.h"
 	"cliente.h"
 	"consumo.h"
 	"lista_Consumo.h"
 	"arbolesclientes.h"
-	<windows.h>
 
 1636843447 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\consumo.c
 	<string.h>
@@ -69,8 +69,26 @@
 
 1636844096 c:\users\fernando\desktop\mi repositorio\tpfinallab2\autocargacliente.h
 
-1636863105 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\menu.c
+1637016213 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\menu.c
 	"menu.h"
 
 1636856924 c:\users\fernando\desktop\mi repositorio\tpfinallab2\menu.h
+
+1637018121 source:c:\users\fernando\desktop\mi repositorio\tpfinallab2\swicht.c
+	"swicht.h"
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+	<string.h>
+	"gotoxy.h"
+	"menu.h"
+	"windows.h"
+	"arbolesclientes.h"
+	"autoCargaCliente.h"
+	"Lista_Consumo.h"
+	"cliente.h"
+	"consumo.h"
+
+1637017780 c:\users\fernando\desktop\mi repositorio\tpfinallab2\swicht.h
 

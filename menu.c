@@ -17,8 +17,6 @@ void menu()
 
     lineaHInf();
 
-    printf("\n\n\n\n");
-    menu_integrantes();
     system("pause");
     system("cls");
 
@@ -35,13 +33,11 @@ void menu()
     printf("\n\t%c                               %c                            %c",186,186,186);
     printf("\n\t%c\t        (PRESIONE 3)    %c          (PRESIONE 0)      %c",186,186);
     lineaHInf();
-    system("pause");
-    system("cls");
 }
 
 void menu1()
 {
-    color(3);
+
     printf("\n\n\n");
     gotoxy(7,5);
     printf("\n  %c %cQue desea realizar?                 \n",254,168);
@@ -61,8 +57,6 @@ void menu1()
     printf("\n\t%c                      (PRESIONE 0)                          %c",186,186);
     printf("\n\t%c                                                            %c",186,186);
     lineaHInf();
-    system("pause");
-    system("cls");
 }
 
 
@@ -77,8 +71,6 @@ void menuCliente()
     lineaHMedio();
     printf("\t%c\t[ 2 ] - Carga un cliente  RANDOM                     %c",186,186);
     lineaHInf();
-    system("pause");
-    system("cls");
 
 }
 
@@ -91,8 +83,6 @@ void menu2()
     lineaHMedio();
     printf("\t%c\t[ 2 ] - ALTA / BAJA cliente                          %c",186,186);
     lineaHInf();
-    system("pause");
-    system("cls");
 }
 
 void menu3()
@@ -112,8 +102,6 @@ void menu3()
     lineaHMedio();
     printf("\t%c\t\t5) [ < 0 > ] VOLVER AL MENU ANTERIOR...      %c",186,186);
     lineaHInf();
-    system("pause");
-    system("cls");
 }
 
 void menu4()
@@ -131,8 +119,6 @@ void menu4()
 
     printf("\t%c\t\t5) [ < 0 > ] VOLVER AL MENU ANTERIOR...      %c",186,186);
     lineaHInf();
-    system("pause");
-    system("cls");
 }
 
 
@@ -262,4 +248,7 @@ void menu_integrantes()
     printf("\n\t                           **************************\n");
     printf("\n          TECNICATURA UNIVERSITARIA EN PROGRAMACION           UTN MAR DEL PLATA\n");
     printf("\n        ----------------------------------------------------------------------------\n\n");
+
+    system("pause");
+    system("cls");
 }
