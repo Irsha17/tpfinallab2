@@ -31,14 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Lista_Consumo.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="Lista_Consumo.h" />
-		<Unit filename="arbolesclientes.c">
+		<Unit filename="arbolClientes.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="arbolesclientes.h" />
+		<Unit filename="autoCargaCliente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="autoCargaCliente.h" />
 		<Unit filename="cliente.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -51,9 +51,21 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="gotoxy.h" />
+		<Unit filename="listaConsumo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="listaConsumo.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
+		<Unit filename="switch.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="switch.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

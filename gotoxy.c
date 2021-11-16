@@ -34,3 +34,8 @@ void hidecursor(int ver){                                                       
    info.bVisible = ver;
    SetConsoleCursorInfo(consoleHandle, &info);
 }
+
+void centrarTexto(const char *texto, int y){
+    int size_texto = strlen(texto);
+    gotoxy(40-(size_texto/2),y); printf("%s", texto);
+}
